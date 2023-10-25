@@ -150,7 +150,6 @@ export const Header = () => {
           </div>
 
           <div
-            id="nav-links"
             className={`${
               hidden ? "hidden" : ""
             } items-center justify-between w-full md:flex md:w-auto md:order-1`}
