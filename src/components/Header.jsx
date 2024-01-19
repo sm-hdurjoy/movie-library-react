@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../assets/logo.png";
 import { useEffect, useState } from "react";
 
@@ -7,6 +7,8 @@ export const Header = () => {
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("darkMode")) || false
   );
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
@@ -17,6 +19,14 @@ export const Header = () => {
       document.documentElement.classList.remove("dark");
     }
   }, [darkMode]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const queryTerm = event.target.search.value;
+    event.target.reset();
+
+    return navigate(`/search?q=${queryTerm}`);
+  };
 
   const activeClass =
     "text-base block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500";
@@ -114,13 +124,16 @@ export const Header = () => {
                 </svg>
                 <span className="sr-only">Search icon</span>
               </div>
-              <input
-                type="text"
-                id="search-navbar"
-                className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search..."
-                autoComplete="off"
-              />
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  id="search-navbar"
+                  name="search"
+                  className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Search..."
+                  autoComplete="off"
+                />
+              </form>
             </div>
             <button
               data-collapse-toggle="navbar-search"
@@ -173,13 +186,16 @@ export const Header = () => {
                   />
                 </svg>
               </div>
-              <input
-                type="text"
-                id="search-navbar"
-                className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search..."
-                autoComplete="off"
-              />
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  id="search-navbar"
+                  className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Search..."
+                  autoComplete="off"
+                  name="search"
+                />
+              </form>
             </div>
             <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
