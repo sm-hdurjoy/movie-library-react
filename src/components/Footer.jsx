@@ -17,6 +17,7 @@ export const Footer = () => {
               href="https://twitter.com/h_durjoy_"
               target="_blank"
               className="mr-4 hover:underline md:mr-6 "
+              rel="noreferrer"
             >
               Twitter
             </a>
@@ -26,6 +27,7 @@ export const Footer = () => {
               href="https://www.linkedin.com/in/hazzaz-durjoy/"
               target="_blank"
               className="mr-4 hover:underline md:mr-6"
+              rel="noreferrer"
             >
               LinkedIn
             </a>
@@ -35,6 +37,7 @@ export const Footer = () => {
               href="https://github.com/sm-hdurjoy/"
               target="_blank"
               className="mr-4 hover:underline md:mr-6"
+              rel="noreferrer"
             >
               GitHub
             </a>
@@ -44,6 +47,7 @@ export const Footer = () => {
               href="https://www.facebook.com/durjoy.hazzaz"
               target="_blank"
               className="hover:underline"
+              rel="noreferrer"
             >
               Facebook
             </a>
