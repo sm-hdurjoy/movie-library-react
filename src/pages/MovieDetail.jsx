@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import NoImageAvailable from "../assets/images/notAvailable.jpg";
-
+import { useDynamicTitle } from "../hooks/useDynamicTitle";
 
 export const MovieDetail = () => {
-
   const params = useParams();
   const [movie, setMovie] = useState({});
   const image = movie.poster_path
@@ -21,6 +20,9 @@ export const MovieDetail = () => {
     }
     fetchMovie();
   }, [params.id]);
+
+  useDynamicTitle(movie.title);
+
   return (
     <main>
       <section className="flex justify-around flex-wrap py-5">
@@ -101,4 +103,4 @@ export const MovieDetail = () => {
       </section>
     </main>
   );
-}
+};

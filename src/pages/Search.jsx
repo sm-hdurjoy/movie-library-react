@@ -1,12 +1,15 @@
 import { useSearchParams } from "react-router-dom";
 import { Card } from "../components";
 import { useFetch } from "../hooks/useFetch";
+import { useDynamicTitle } from "../hooks/useDynamicTitle";
 
 export const Search = (apiPath) => {
   const [searchParams] = useSearchParams();
   const queryTerm = searchParams.get("q");
 
   const { data: movies } = useFetch(apiPath, { queryTerm });
+
+  useDynamicTitle(`Search result for ${queryTerm}`);
 
   return (
     <main>

@@ -40,7 +40,7 @@ export const Header = () => {
           <Link to="/" className="flex items-center">
             <img src={Logo} className="h-8 mr-2" alt="Movie Library" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Movie Library
+              MovieMate
             </span>
           </Link>
 

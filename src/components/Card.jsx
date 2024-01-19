@@ -8,7 +8,7 @@ export const Card = ({ movie }) => {
     : NoImageAvailable;
 
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3">
+    <div className="max-w-[250px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-3 hover:scale-105 transition-transform duration-300 ease-in-out">
       <Link to={`/movie/${id}`}>
         <img className="rounded-t-lg" src={moviePosterImage} alt="" />
       </Link>
@@ -18,9 +18,9 @@ export const Card = ({ movie }) => {
             {original_title}
           </h5>
         </Link>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        {/* <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
           {overview}
-        </p>
+        </p> */}
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-100">
           Release Date : {release_date}
         </p>
