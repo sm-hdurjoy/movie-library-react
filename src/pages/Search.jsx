@@ -1,4 +1,7 @@
+// Library Imports
 import { useSearchParams } from "react-router-dom";
+
+// Components imports
 import { Card } from "../components";
 import { useFetch } from "../hooks/useFetch";
 import { useDynamicTitle } from "../hooks/useDynamicTitle";

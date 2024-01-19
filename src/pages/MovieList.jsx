@@ -1,3 +1,4 @@
+// Component imports
 import { Card } from "../components";
 import { useFetch } from "../hooks/useFetch";
 import { useDynamicTitle } from "../hooks/useDynamicTitle";
