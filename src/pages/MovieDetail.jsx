@@ -1,15 +1,23 @@
+// Library Imports
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import NoImageAvailable from "../assets/images/notAvailable.jpg";
+
+// Components Imports
 import { useDynamicTitle } from "../hooks/useDynamicTitle";
 
+// Assets Imports
+import NoImageAvailable from "../assets/images/notAvailable.jpg";
+
 export const MovieDetail = () => {
-  const params = useParams();
-  const [movie, setMovie] = useState({});
+  const params = useParams(); // useParams to get movie id to show individual movies
+  const [movie, setMovie] = useState({}); // state variable to store individual movie details
+
+  // Accessing image url from API and setting image if no image in API
   const image = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     : NoImageAvailable;
 
+  // fetching individual movie from API call to show movie details when clicking on a movie card
   useEffect(() => {
     async function fetchMovie() {
       const response = await fetch(
@@ -21,6 +29,7 @@ export const MovieDetail = () => {
     fetchMovie();
   }, [params.id]);
 
+  // Updating the tab name dynamically
   useDynamicTitle(movie.title);
 
   return (

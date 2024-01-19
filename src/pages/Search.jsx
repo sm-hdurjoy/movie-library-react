@@ -4,11 +4,12 @@ import { useFetch } from "../hooks/useFetch";
 import { useDynamicTitle } from "../hooks/useDynamicTitle";
 
 export const Search = (apiPath) => {
-  const [searchParams] = useSearchParams();
-  const queryTerm = searchParams.get("q");
+  const [searchParams] = useSearchParams(); // storing search value by useSearchParams
+  const queryTerm = searchParams.get("q"); // getting query term
 
-  const { data: movies } = useFetch(apiPath, { queryTerm });
+  const { data: movies } = useFetch(apiPath, { queryTerm }); // calling api based on the query term and storing in data: movies
 
+  // Updating the tab name dynamically
   useDynamicTitle(`Search result for ${queryTerm}`);
 
   return (

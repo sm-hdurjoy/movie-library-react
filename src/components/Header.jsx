@@ -1,18 +1,24 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import Logo from "../assets/logo.png";
+// Library Imports
 import { useEffect, useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+
+// Assets Imports
+import Logo from "../assets/logo.png";
 
 export const Header = () => {
-  const [hidden, setHidden] = useState(true);
+  const [hidden, setHidden] = useState(true); // State variable for movile menu if hidden or not
+
+  // State variable for darkMode and getting darkMode value from local storage
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("darkMode")) || false
   );
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // using useNavigate o navigate to search page when doing a search
 
   useEffect(() => {
-    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+    localStorage.setItem("darkMode", JSON.stringify(darkMode)); // Fetching darkMode value from local storage when first component is mounted
 
+    // adding darkMode depending on the value from local storage
     if (darkMode) {
       document.documentElement.classList.add("dark");
     } else {
@@ -20,6 +26,7 @@ export const Header = () => {
     }
   }, [darkMode]);
 
+  // Function to handle submit action on search bar
   const handleSubmit = (event) => {
     event.preventDefault();
     const queryTerm = event.target.search.value;

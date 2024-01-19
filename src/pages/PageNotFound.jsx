@@ -4,6 +4,8 @@ import { Button } from "../components/Button";
 import { useEffect } from "react";
 
 export const PageNotFound = () => {
+
+  //updating tab title when a page is not found
   useEffect(() => {
     document.title = `Page Not Found / Movie Library`;
   }, []);

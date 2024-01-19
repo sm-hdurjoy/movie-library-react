@@ -3,10 +3,11 @@ import { useFetch } from "../hooks/useFetch";
 import { useDynamicTitle } from "../hooks/useDynamicTitle";
 
 export const MovieList = (props) => {
-  const apiPath = props;
-  const { title } = props;
+  const apiPath = props; // apiPath from parent component sent as props
+  const { title } = props; // title from parent component sent as props
   const { data: movies } = useFetch(apiPath);
 
+  // Updating the tab name dynamically
   useDynamicTitle(title);
 
   return (
